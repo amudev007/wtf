@@ -44,18 +44,33 @@ public class FuckAdapter  extends RecyclerView.Adapter<FuckAdapter.FuckHolder> {
         return listData.size();
     }
 
-    class FuckHolder extends RecyclerView.ViewHolder {
+    class FuckHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView title;
-        private ImageView icon;
-        private View container;
+        ImageView thumbnail;
+        ImageView secondaryIcon;
+        TextView title;
+        TextView subTitle;
+        View container;
 
         public FuckHolder(View itemView) {
             super(itemView);
+            thumbnail = (ImageView)itemView.findViewById(R.id.im_item_icon);
+            secondaryIcon = (ImageView)itemView.findViewById(R.id.im_item_icon_secondary);
+            secondaryIcon.setOnClickListener(this);
+            subTitle = (TextView)itemView.findViewById(R.id.lbl_item_sub_title);
             title = (TextView)itemView.findViewById(R.id.lbl_item_text);
-            icon = (ImageView)itemView.findViewById(R.id.im_item_icon);
-//We'll need the container later on, when we add an View.OnClickListener
-            container = itemView.findViewById(R.id.cont_item_root);
+            container = (View)itemView.findViewById(R.id.cont_item_root);
+            container.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (v.getId() == R.id.cont_item_root){
+                itemClickCallback.onItemClick(getAdapterPosition());
+            } else {
+                itemClickCallback.onSecondaryIconClick(getAdapterPosition());
+            }
+
         }
     }
 
