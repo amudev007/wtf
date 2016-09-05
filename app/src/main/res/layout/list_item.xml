@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:paddingLeft="16dp"
-        android:src="@drawable/ic_star_rate_black_18px" />
+        android:src="@drawable/ic_star_rate_black_18dp" />
 
     <TextView
         android:id="@+id/lbl_item_text"
@@ -36,6 +36,7 @@
         android:layout_below="@+id/lbl_item_text"
         android:layout_marginLeft="72dp"
         android:layout_marginRight="48dp"
+        android:layout_marginTop="48dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif"
         android:singleLine="true"
@@ -50,7 +51,7 @@
         android:layout_centerVertical="true"
         android:clickable="true"
         android:padding="16dp"
-        android:src="@drawable/ic_tab_black_18px"
+        android:src="@drawable/ic_star_rate_black_18dp"
         android:background="@drawable/background_state_drawable"
         />
 

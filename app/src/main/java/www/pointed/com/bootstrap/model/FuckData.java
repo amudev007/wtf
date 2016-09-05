@@ -3,11 +3,13 @@ package www.pointed.com.bootstrap.model;
 /**
  * Created by cw on 29-Aug-16.
  */
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class FuckData {
-    private static final String[] titles = {"Nothingness cannot be defined",
+    private static final String[] titles = {"Wherever Your Focus Goes Energy Goes And Results Come",
             "Time is like a river made up of the events which happen, and a violent stream; " +
                     "for as soon as a thing has been seen, it is carried away, and another comes" +
                     " in its place, and this will be carried away too,",
@@ -24,7 +26,7 @@ public class FuckData {
                     " seasons, or the wind, but you can change yourself. That is something you" +
                     " have charge of."};
 
-    private static final String[] subTitles = {"Bruce Lee",
+    private static final String[] subTitles = {"Amitabh Ramteke",
             "Marcus Aurelius",
             "Meng Tzu",
             "Ajahn Chah",
@@ -34,7 +36,8 @@ public class FuckData {
 
     };
 
-    private static final int[] icons = {android.R.drawable.ic_popup_reminder, android.R.drawable.ic_menu_add,
+    private static final int[] icons = {android.R.drawable.ic_popup_reminder,android.R.drawable.ic_popup_reminder,android.R.drawable.ic_popup_reminder,android.R.drawable.ic_popup_reminder,
+            android.R.drawable.ic_menu_add,
             android.R.drawable.ic_menu_delete};
 
     public static List<ListItem> getListData() {
@@ -43,13 +46,24 @@ public class FuckData {
 //RecyclerView
         for (int x = 0; x < 4; x++) {
 //create ListItem with dummy data, then add them to our List
-            for (int i = 0; i < titles.length && i < icons.length; i++) {
+            for (int i = 0; i < titles.length  ; i++) {
                 ListItem item = new ListItem();
-                item.setImageResId(icons[i]);
+
+//                item.setImageResId(icons[i]);
+
                 item.setTitle(titles[i]);
+                item.setSubTitle(subTitles[i]);
                 data.add(item);
             }
         }
         return data;
+    }
+
+    public static ListItem getRandomListItem(){
+        int rand = new Random().nextInt(6);
+        ListItem item = new ListItem();
+        item.setTitle(titles[rand]);
+        item.setSubTitle(subTitles[rand]);
+        return item;
     }
 }
